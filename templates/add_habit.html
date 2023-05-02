@@ -1,0 +1,8 @@
+{% extends "layout.html" %}
+
+{% block main_content %}
+    <form class="main__add_habit_form" method="POST">
+        <textarea class="main__add_habit_textarea" rows=3 id="habit" name="habit" placeholder="Enter Habit"></textarea>
+        <button class="main__add_habit_button" type="submit">Add</button>
+    </form>
+{% endblock %}

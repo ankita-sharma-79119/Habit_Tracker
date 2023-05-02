@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block main_content %}
+    <section>
+        <div class="main__habit_completed_list">
+            {% for obj in habits %}
+                <div class="main__habit_list">
+                    <form method="POST" class="main__habit_complete_form" action="{{ url_for('habits_complete.habit_complete') }}">
+                        <input type="hidden" name="habit_index" value="{{ loop.index0 }}" />
+                        <input type="hidden" name="selectedDate" value="{{ selected_date }}" />
+                        <button type="submit" class="main__habit_completed_form_button">
+                            {{ obj.get_Name() }}
+                        </button>
+                    </form>
+                </div>
+            {% endfor %}
+            {% if completions|length > 0 %}
+                {% for obj in completions %}
+                    <div class="main__habit_completed">
+                        <p class="main__habit_completed_name">{{ obj.get_Name() }}</p>
+                        <svg class="main__habit_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                        </svg>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,139 @@
+*,
+*::after,
+*::before{
+    box-sizing: inherit;
+}
+
+body{
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-image: url("../background.jpg");
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-color: rgb(200, 196, 203);
+}
+
+.header,
+.main{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 1px;
+}
+
+.header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    color: rgb(239, 237, 237);
+    height: 70px;
+    margin-top: 40px;
+}
+
+.header__link{
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.1s ease-in-out;
+}
+
+.header__link:hover{
+    color:rgb(154, 152, 152)
+}
+
+.header__add_link{
+    font-size: 16px;
+}
+
+.main__dates{
+    display: flex;
+    justify-content: space-around;
+    font-size: 17px;
+    background-color: aliceblue;
+    border-radius: 5px;
+}
+
+.main__dates_link{
+    text-decoration: none;
+    outline: none;
+    margin: 10px auto;
+    color:rgb(92, 59, 107);
+    font-weight: bold;
+}
+
+.main__dates_link-current{
+    color: rgb(230, 131, 10);
+}
+
+.main__date{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main__dates_link:not(.main__dates_link-current):hover{
+    text-decoration: underline;
+}
+
+.main__add_habit_form{
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+}
+
+.main__add_habit_textarea{
+    resize: none;
+    font-size: 18px;
+    background-color: rgb(229, 222, 222);
+    border-radius: 5px;
+    padding: 12px 20px;
+}
+
+.main__add_habit_button{
+    align-self: center;
+    margin-top: 10px;
+    font-size: 13px;
+    font-weight: bold;
+    background-color:rgb(92, 59, 107);
+    color:rgb(210, 207, 207);
+    border: none;
+    padding: 8px 25px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.main__habit_completed_list{
+    margin-top: 40px;
+    color: rgb(239, 237, 237);
+}
+
+.main__habit_list, .main__habit_completed{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 19px;
+    padding: 0px 10px;
+    color: inherit;
+    border-color: whitesmoke;
+    border-style: solid;
+    border-radius: 15px;
+    background-color: rgb(98, 42, 95);
+}
+
+.main__habit_icon{
+    height: 25px;
+}
+
+.main__habit_completed_form_button{
+    font-size: 19px;
+    margin: 19px 0 19px 0;
+    border: none;
+    background-color: rgb(98, 42, 95);
+    color: inherit;
+    cursor: pointer;
+    padding: 0;
+}
+
+.main__habit_completed_form_button:hover{
+    color: rgb(238, 204, 35);
+}
