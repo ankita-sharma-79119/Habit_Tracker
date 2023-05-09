@@ -1,0 +1,56 @@
+/* Header Stylings */
+
+.header{
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    /* color: #9B2335; */
+    color: #34568B;
+    height: 70px;
+    margin-top: 40px;
+}
+
+.header__logo{
+    display: flex;
+    align-items: center;
+    float: left;
+    margin: 0px;
+}
+
+.header__logo .header__logo_text{
+    font-family: 'Bruno Ace SC', cursive;
+    font-size: 28px;
+    margin-left: 10px;
+}
+
+.header__link .header__link_home, .header__link_add{
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.01s ease-in-out;
+}
+
+.header__link .header__link_home:hover{
+    color:rgb(154, 152, 152)
+}
+
+.header__link .header__link_add:hover{
+    color:rgb(78, 78, 78)
+}
+
+.header__link .header__link_home{
+    color: black;
+    font-weight: bold;
+    font-size: 16px;
+    margin-left: 30px;
+}
+
+.header__link .header__link_add{
+    margin-left: 30px;
+    color: rgb(125, 124, 124);
+    font-weight: bold;
+    font-size: 16px;
+}
