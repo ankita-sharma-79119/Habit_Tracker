@@ -21,4 +21,4 @@ def habit_complete():
     # append_complete_list(habit_obj)
     # remove_habit_list(habit_obj)
     
-    return redirect(url_for("habits.home_page", date=date_string))
+    return redirect(url_for("habits.view_page", date=date_string))

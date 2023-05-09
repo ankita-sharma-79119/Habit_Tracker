@@ -1,4 +1,5 @@
 import datetime
+import os
 from flask import Blueprint, current_app, render_template, request, redirect, url_for
 from model.habit import habit
 from collections import defaultdict
@@ -11,8 +12,12 @@ pages = Blueprint("habits",
                 template_folder="template", 
                 static_folder="static")
 
-@pages.route("/", methods=["GET", "POST"])
-def home_page():
+linkedin = os.getenv("LINKEDIN_URI")
+github = os.getenv("GITHUB_URI")
+medium = os.getenv("MEDIUM_URI")
+
+@pages.route("/view", methods=["GET", "POST"])
+def view_page():
     date_str = request.args.get("date")
     if date_str:
         selected_date = datetime.date.fromisoformat(date_str)
@@ -22,11 +27,32 @@ def home_page():
     get_habit_list_db(selected_date)
 
     return render_template(
-        "index.html", 
+        "view_habit.html", 
         habits=habit_list, 
         title="Habit Tracker",
         completions = completion_list,
-        selected_date=selected_date)
+        selected_date=selected_date,
+        linkedin=linkedin,
+        github=github,
+        medium=medium)
+
+@pages.route("/", methods=["GET", "POST"])
+def home_page():
+    return render_template(
+        "homepage.html",  
+        title="Habit Tracker",
+        linkedin=linkedin,
+        github=github,
+        medium=medium)
+
+@pages.route("/about", methods=["GET", "POST"])
+def about_page():
+    return render_template(
+        "about.html",  
+        title="Habit Tracker",
+        linkedin=linkedin,
+        github=github,
+        medium=medium)
 
 def get_habit_list_db(selected_date: datetime.date):
     cur = current_app.db.habits.find({"createdAt" : selected_date.strftime("%Y-%m-%d")})
