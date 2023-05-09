@@ -1,6 +1,16 @@
 {% extends "layout.html" %}
 
 {% block main_content %}
+    <section class="main__dates">
+        {% for date in date_range(selected_date) %}
+            <a class="main__dates_link {{ 'main__dates_link-current' if loop.index0 == 3 else '' }}" href="{{ url_for('habits.home_page', date=date) }}">
+                <time class="main__date" datetime="{{ date }}">
+                    <span>{{ date.strftime("%a") }}</span>
+                    <span>{{ date.strftime("%d") }}</span>
+                </time>
+            </a>
+        {% endfor %}
+    </section>
     <section>
         <div class="main__habit_completed_list">
             {% for obj in habits %}
@@ -23,6 +33,8 @@
                         </svg>
                     </div>
                 {% endfor %}
+            {% else %}
+                <h3 class="no_habit_text">No habits</h3>
             {% endif %}
         </div>
     </section>

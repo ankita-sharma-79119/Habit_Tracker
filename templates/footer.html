@@ -1,0 +1,27 @@
+<footer class="footer">
+    <div class="footer__content">
+        <section class="left">
+            <span class="footer__item">&#169; 2023 HabitTracker. &#169; Ankita Sharma</span>
+            <a href="{{ linkedin }}" target="_blank" class="footer__item_social">
+                <img class="footer__item" src="{{ url_for('static', filename='img/social/Linkedin.png') }}" alt="LinkedIn link" 
+                width="18px" height="18px"/>
+            </a>
+            <a href="{{ github }}" target="_blank" class="footer__item_social">
+                <img class="footer__item" src="{{ url_for('static', filename='img/social/GitHub.png') }}" alt="GitHub link" 
+                width="18px" height="18px"/>
+            </a>
+            <a href="{{ medium }}" target="_blank" class="footer__item_social">
+                <img class="footer__item" src="{{ url_for('static', filename='img/social/Medium.png') }}" alt="Medium link" 
+                width="18px" height="18px"/>
+            </a>
+        </section>
+        <section class="right">
+            <div class="footer__right_column">
+                <a class="footer__link_item" href="{{ url_for('habits.home_page') }}">Home</a>
+                <a class="footer__link_item" href="{{ url_for('habits.about_page') }}">About</a>
+                <a class="footer__link_item" href="{{ url_for('habits.home_page') }}">Credits</a>
+                <a class="footer__link_item" href="#">Check out my other projects</a>
+            </div>
+        </section>
+    </div>
+</footer>

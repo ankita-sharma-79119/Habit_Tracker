@@ -4,36 +4,30 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        
         <title>{{ title }}</title>
-        <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+        
+        <!--loading google formats-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Lato:ital,wght@1,300;1,400&display=swap" rel="stylesheet">
+        
+        <!--loading static style files-->
         <link href="{{ url_for('static', filename='/css/style.css') }}" rel="stylesheet">
-        {% block head_content %}
-        {% endblock %}
+        <link href="{{ url_for('static', filename='/css/header.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='/css/main.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='/css/footer.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='/css/extra_pages.css') }}" rel="stylesheet">
     </head>
     <body>
-        <header class="header">
-            <h1 class="header__logo">
-                <a href="{{ url_for('habits.home_page') }}" class="header__link">Habits Tracker</a>
-            </h1>
-            {% if "add" not in request.endpoint %}
-                <span class="header__add_link">
-                    <a href="{{ url_for('habits_add.add_habit') }}" class="header__link">+ Add new</a>
-                </span>
-            {% endif %}
-        </header>
-        <main class="main">
-            <section class="main__dates">
-                {% for date in date_range(selected_date) %}
-                    <a class="main__dates_link {{ 'main__dates_link-current' if loop.index0 == 3 else '' }}" href="{{ url_for('habits.home_page', date=date) }}">
-                        <time class="main__date" datetime="{{ date }}">
-                            <span>{{ date.strftime("%a") }}</span>
-                            <span>{{ date.strftime("%d") }}</span>
-                        </time>
-                    </a>
-                {% endfor %}
-            </section>
-            {% block main_content %}
-            {% endblock %}
+        {% include "header.html" %}
+        <main class="main_body">
+            <div class="main">
+                {% block main_content %}
+                {% endblock %}
+                {% include "footer.html" %}
+            </div>
         </main>
     </body>
 </html>

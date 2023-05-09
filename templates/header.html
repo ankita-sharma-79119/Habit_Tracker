@@ -1,0 +1,15 @@
+<header class="header">
+    <h1 class="header__logo">
+        <img src="{{ url_for('static', filename='img/logo.png') }}" class="header__brand_logo"
+                    alt="HabitTracker page logo" width="30px" height="30px"/>
+        <span class="header__logo_text">Habits Tracker</span>
+    </h1>
+        <span class="header__link">
+            <a href="{{ url_for('habits.home_page') }}" class="header__link_home">Home</a>
+            <a href="{{ url_for('habits.about_page') }}" class="header__link_home">About</a>
+            <a href="{{ url_for('habits.view_page') }}" class="header__link_home">View Habits</a>
+            {% if "view" in request.endpoint %}
+                <a href="{{ url_for('habits_add.add_habit') }}" class="header__link_add">+ Add new</a>
+            {% endif %}
+        </span>
+</header>
