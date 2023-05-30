@@ -6,9 +6,11 @@ In this Project, I have made a website that allows you to create and track daily
 Live Link: https://habittracker-ij8z.onrender.com/
 
 # Features
-- Show habits daywise
-- Mark habits completed
+- View habits daywise
 - Create new habits
+- Mark habits as completed
+- Mark habits as incomplete
+- Delete habits
 
 # Usage
 Here's how you can use the Project:
