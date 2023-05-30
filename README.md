@@ -10,12 +10,6 @@ Live Link: https://habittracker-ij8z.onrender.com/
 - Mark habits completed
 - Create new habits
 
-# To Do
-- Delete habits
-- User Login
-- Update habits
-- Mark habits as not completed
-
 # Usage
 Here's how you can use the Project:
 1. Install pyenv-win
