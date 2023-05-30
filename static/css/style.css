@@ -12,8 +12,9 @@ body{
 
 .main_body {
     background-image: url("../img/background.jpg");
-    background-repeat: no-repeat;
+    /* background-repeat: no-repeat; */
+    background-repeat: repeat-y;
     background-position-x: center;
     background-color: rgb(200, 196, 203);
-    height: 620px;
+    /* height: 620px; */
 }

@@ -15,6 +15,7 @@ pages = Blueprint("habits",
 linkedin = os.getenv("LINKEDIN_URI")
 github = os.getenv("GITHUB_URI")
 medium = os.getenv("MEDIUM_URI")
+portfolio = os.getenv("PORTFOLIO_URI")
 
 @pages.route("/view", methods=["GET", "POST"])
 def view_page():
@@ -34,7 +35,28 @@ def view_page():
         selected_date=selected_date,
         linkedin=linkedin,
         github=github,
-        medium=medium)
+        medium=medium,
+        portfolio=portfolio)
+
+@pages.route("/delete", methods=["GET", "POST"])
+def delete_habit():
+    date_string = request.args.get("date")
+    index = int(request.args.get("index"))
+
+    habit_obj = habit_list.pop(index)
+    habit_obj.delete_db(current_app)
+    
+    return redirect(url_for("habits.view_page", date=date_string))
+
+@pages.route("/delete/completed", methods=["GET", "POST"])
+def delete_completed_habit():
+    date_string = request.args.get("date")
+    index = int(request.args.get("index"))
+
+    habit_obj = completion_list.pop(index)
+    habit_obj.delete_db(current_app)
+    
+    return redirect(url_for("habits.view_page", date=date_string))
 
 @pages.route("/", methods=["GET", "POST"])
 def home_page():
@@ -43,7 +65,8 @@ def home_page():
         title="Habit Tracker",
         linkedin=linkedin,
         github=github,
-        medium=medium)
+        medium=medium,
+        portfolio=portfolio)
 
 @pages.route("/about", methods=["GET", "POST"])
 def about_page():
@@ -52,7 +75,16 @@ def about_page():
         title="Habit Tracker",
         linkedin=linkedin,
         github=github,
-        medium=medium)
+        medium=medium,
+        portfolio=portfolio)
+
+@pages.route("/credits", methods=["GET"])
+def credit_page():
+    return render_template("credits.html",
+                           linkedin=linkedin,
+                           github=github,
+                           medium=medium,
+                           portfolio=portfolio)
 
 def get_habit_list_db(selected_date: datetime.date):
     cur = current_app.db.habits.find({"createdAt" : selected_date.strftime("%Y-%m-%d")})
@@ -74,4 +106,7 @@ def get_habit_list_db(selected_date: datetime.date):
 
 def get_habit(index):
     return habit_list[index]
+
+def get_completed_habit(index):
+    return completion_list[index]
 

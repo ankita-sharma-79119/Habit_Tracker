@@ -34,9 +34,16 @@ class habit:
         id = app.db.habits.insert_one(self.create_db_format())
         self.__id =  id.inserted_id
 
-    def update_db(self, app):
+    def complete_update_db(self, app):
         app.db.habits.update_one({"_id": self.__id}, { "$set": { "is_completed": True } })
         self.__is_completed = True
+
+    def incomplete_update_db(self, app):
+        app.db.habits.update_one({"_id": self.__id}, { "$set": { "is_completed": False } })
+        self.__is_completed = False
+
+    def delete_db(self, app):
+        app.db.habits.delete_one({"_id": self.__id})
 
     def __str__(self) -> str:
          return f""" id : {self.__id}, 

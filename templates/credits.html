@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block main_content %}
+    <div class="main__credit">
+        <div class="main__credit_content">
+            <p class="main__credit_title">
+                Here are the list of references used in building this website.
+            </p>
+            <div class="references__container">
+                <div class="references__course">
+                    <a href="https://www.udemy.com/course/web-developer-bootcamp-flask-python/" 
+                       class="course_view_link" target="_blank">
+                        <img class="course__image" src="{{ url_for('static', filename='/img/web_developer_course.jpg') }}" crossorigin
+                            alt="Udemy Course Image"/>
+                        <div class="course__title_content">
+                            <h2 class="course__title">Web Developer Bootcamp with Flask and Python in 2023</h2>
+                            <p class="course__author">Created by Jose Salvatierra, Teclado by Jose Salvatierra</p>
+                        </div>
+                    </a>
+                </div>
+
+                <div class="space_between"></div>
+
+                <div class="references__website">
+                    <a href="https://www.w3schools.com/" 
+                       class="website_view_link" target="_blank">
+                        <img class="website__image" src="{{ url_for('static', filename='/img/w3.png') }}" crossorigin
+                            alt="W3 Logo Image"/>
+                        <div class="website__title_content">
+                            <h2 class="website__title">W3Schools Website</h2>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

@@ -71,7 +71,7 @@
     min-height: 450px;
 }
 
-.main__habit_list, .main__habit_completed{
+.main__habit_completed_display_box, .main__habit_display_box{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -84,11 +84,26 @@
     border-radius: 15px;
     margin-bottom: 2px;
     background-color: aliceblue;
+    text-decoration: none;
+}
 
+.main__habit_complete_link, .main__habit_incomplete_link {
+    text-decoration: none;
+    width: 90%;
+}
+
+.main__habit_completed_name, .habit__delete_link {
+    text-decoration: none;
+    color: #34568B;
 }
 
 .main__habit_icon{
     height: 25px;
+}
+
+.main__habit_icon_list {
+    display:flex; 
+    align-items: center;
 }
 
 .main__habit_completed_form_button{

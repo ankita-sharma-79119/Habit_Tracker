@@ -1,11 +1,11 @@
-.main__about_content{
+.main__about_content, .main__credit_content{
     max-width: 700px;
     margin: 60px auto;
     text-align: justify;
     font-weight: bold;
 }
 
-.main__about_title{
+.main__about_title, .main__credit_title{
     font-size: 35px;
     text-align: center;
     margin-bottom: 80px;
@@ -13,4 +13,39 @@
 
 .main__about_subtext:last-of-type{
     margin-bottom: 100px;
+}
+
+.references__course, .references__website{
+    position: relative;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.space_between {
+    margin: 50px;
+}
+
+.course__image {
+    width: 100%;
+}
+
+.website__image {
+    width: 100%;
+    height: 50%;
+}
+
+.course__title_content, .website__title_content {
+    position: absolute; /* Position the background text */
+    top: 0;
+    background: rgb(0, 0, 0); /* Fallback color */
+    background: rgba(0, 0, 0, 0.5); /* Black background with 0.5 opacity */
+    color: #f1f1f1; /* Grey text */
+    width: 100%; /* Full width */
+    padding: 0 10px; /* Some padding */
+}
+
+.course__author {
+    padding: 0 5px;
+    color: white;
+    font-size: 15px;
 }
